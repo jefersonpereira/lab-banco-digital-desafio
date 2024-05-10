@@ -1,13 +1,22 @@
+public class ContaPoupanca extends ContaBancaria {
+    private double rendimento;
 
-public class ContaPoupanca extends Conta {
+    public ContaPoupanca(String titular, int numero,double rendimento) {
+        super(titular,numero);
+        this.rendimento = rendimento;
+    }
 
-	public ContaPoupanca(Cliente cliente) {
-		super(cliente);
-	}
+    public double getRendimento() {
+        return rendimento;
+    }
 
-	@Override
-	public void imprimirExtrato() {
-		System.out.println("=== Extrato Conta Poupança ===");
-		super.imprimirInfosComuns();
-	}
+    public void setRendimento(double porcentagem) {
+        if (porcentagem >= 0 &&  porcentagem <= 100) this.rendimento = porcentagem;
+        else porcentagem = 0;
+    }
+
+    public void processar(){
+        super.depositar(rendimento / 100 * super.getSaldo());
+    }
+
 }
