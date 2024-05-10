@@ -1,14 +1,22 @@
+public class ContaCorrente extends ContaBancaria {
+    private double tarifa;
 
-public class ContaCorrente extends Conta {
 
-	public ContaCorrente(Cliente cliente) {
-		super(cliente);
-	}
+    public ContaCorrente(String titular, int numero, double tarifa) {
+        super(titular, numero);
+        this.tarifa = tarifa;
+    }
 
-	@Override
-	public void imprimirExtrato() {
-		System.out.println("=== Extrato Conta Corrente ===");
-		super.imprimirInfosComuns();
-	}
-	
+    public double getTarifa() {
+        return tarifa;
+    }
+
+    public void setTarifa(double tarifa) {
+        this.tarifa = tarifa;
+    }
+    public void processar(){
+        if(tarifa > 0){
+            sacar(tarifa);
+        }
+    }
 }

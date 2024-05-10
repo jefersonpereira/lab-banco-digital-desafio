@@ -1,18 +1,13 @@
-
 public class Main {
+    public static void main(String[] args){
+        ContaPoupanca  c1 = new ContaPoupanca("CAIO", 102, 0.5);
+        c1.depositar(100);
+        c1.processar();
+        System.out.println(c1.getSaldo());
 
-	public static void main(String[] args) {
-		Cliente venilton = new Cliente();
-		venilton.setNome("Venilton");
-		
-		Conta cc = new ContaCorrente(venilton);
-		Conta poupanca = new ContaPoupanca(venilton);
-
-		cc.depositar(100);
-		cc.transferir(100, poupanca);
-		
-		cc.imprimirExtrato();
-		poupanca.imprimirExtrato();
-	}
-
+        ContaCorrente c2 = new ContaCorrente("caio", 102, 5);
+        c2.depositar(100);
+        c2.processar();
+        System.out.println(c2.getSaldo());
+    }
 }
