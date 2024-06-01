@@ -1,3 +1,4 @@
+package model;
 
 public abstract class Conta implements IConta {
 	
@@ -6,7 +7,7 @@ public abstract class Conta implements IConta {
 
 	protected int agencia;
 	protected int numero;
-	protected double saldo;
+	protected double saldo = 0;
 	protected Cliente cliente;
 
 	public Conta(Cliente cliente) {
@@ -17,12 +18,19 @@ public abstract class Conta implements IConta {
 
 	@Override
 	public void sacar(double valor) {
-		saldo -= valor;
+		if (saldo >= valor) {
+			saldo -= valor;
+
+			System.out.println("Seu saldo é R$ " + saldo);
+		}
+		
 	}
 
 	@Override
 	public void depositar(double valor) {
 		saldo += valor;
+
+		System.out.println("Seu saldo é R$ " + saldo);
 	}
 
 	@Override

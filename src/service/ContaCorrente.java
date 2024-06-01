@@ -1,3 +1,6 @@
+package service;
+import model.Cliente;
+import model.Conta;
 
 public class ContaCorrente extends Conta {
 
