@@ -1,24 +1,24 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Banco {
+    private String nome;
+    private List<Conta> contas = new ArrayList<>();
 
-	private String nome;
-	private List<Conta> contas;
+    public void adicionarConta(Conta novaConta) {
+        contas.add(novaConta);
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public boolean removerConta(Conta conta) {
+        return contas.remove(conta);
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public List<Conta> getContas() {
-		return contas;
-	}
-
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
-	}
-
+    public Conta encontrarConta(int numeroConta) {
+        for (Conta conta : contas) {
+            if (conta.getNumero() == numeroConta) {
+                return conta;
+            }
+        }
+        return null;
+    }
 }
